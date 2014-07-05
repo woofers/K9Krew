@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="text.png">
+	
+	<!--Jaxson Van Doorn, 2014-->
+
+	<SubTexture name="woofers0000" x="0" y="0" width="535" height="54"/>
+	<SubTexture name="ponton0000" x="0" y="54" width="535" height="59"/>
+	<SubTexture name="woofers0001" x="0" y="113" width="535" height="59"/>
+	<SubTexture name="ponton0001" x="0" y="172" width="535" height="59"/>
+	<SubTexture name="woofers0002" x="0" y="231" width="535" height="47"/>
+
+
+</TextureAtlas>

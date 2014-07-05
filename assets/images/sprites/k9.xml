@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="k9.png">
+	
+	<!--Jaxson Van Doorn, 2014-->
+
+	<!--Idle-->
+		<SubTexture name="k90000" x="0" y="0" width="12" height="17"/>
+		<SubTexture name="k90001" x="12" y="0" width="12" height="17"/>
+		<SubTexture name="k90002" x="24" y="0" width="12" height="17"/>
+		<SubTexture name="k90003" x="36" y="0" width="12" height="17"/>
+		<SubTexture name="k90004" x="48" y="0" width="12" height="17"/>
+		<SubTexture name="k90005" x="60" y="0" width="12" height="17"/>
+		<SubTexture name="k90006" x="72" y="0" width="12" height="17"/>
+		<SubTexture name="k90007" x="84" y="0" width="12" height="17"/>
+		<SubTexture name="k90008" x="96" y="0" width="12" height="17"/>
+		<SubTexture name="k90009" x="108" y="0" width="12" height="17"/>
+		<SubTexture name="k90010" x="120" y="0" width="12" height="17"/>
+
+</TextureAtlas>
