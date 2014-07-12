@@ -15,7 +15,7 @@ player.prototype =
 		//Add Physics
 		game.physics.arcade.enable(woofers);
 
-		//Physics Properties
+		// Physics Properties
 		woofers.body.bounce.y = 0.2;
 		woofers.body.collideWorldBounds = true;
 		player.prototype.varibleRest();
@@ -23,6 +23,17 @@ player.prototype =
 		// Define Animations
 		woofers.animations.add('w2p', Phaser.Animation.generateFrameNames('k9', 0, 10, '', 4), 10, false);
 		woofers.animations.add('p2w', Phaser.Animation.generateFrameNames('k9', 10, 0, '', 4), 10, false);
+	},
+
+	bringToFront: function () 
+	{
+		woofers.bringToTop();
+	},
+
+	posRest: function ()
+	{
+		woofers.x = 465;
+		woofers.y = 938;
 	},
 
 	varibleRest: function ()
@@ -73,7 +84,6 @@ player.prototype =
 		// Still
 		else 
 		{
-
 		}
 
 		// Runs Tile Checking For Tranformations
@@ -85,6 +95,8 @@ player.prototype =
 		// Jump
 		if (jumpButton.isDown && woofers.body.blocked.down)
 		{
+			jumpSound.play('', 0, 1, false);
+
 			if (woofers.isWoofers)
 			{
 				woofers.body.velocity.y = -woofers.jump;
@@ -106,7 +118,7 @@ player.prototype =
 			woofers.readyToTransform = false;
 			woofers.isWoofers = true;
 		}
-		//Woofers to Ponton
+		// Woofers to Ponton
 		else if (!woofers.isTransforming && woofers.isWoofers && woofers.readyToTransform)
 		{
 			woofers.animations.play('w2p');
@@ -115,9 +127,10 @@ player.prototype =
 			woofers.isWoofers = false;
 		}
 		// End Transformation
-		if (woofers.animations.currentAnim.isFinished)
+		if (woofers.animations.currentAnim.isFinished && woofers.isTransforming)
 		{
 			woofers.isTransforming = false;
+			transformSound.play('', 0, 1, false);
 
 			if (woofers.isWoofers)
 			{
@@ -125,6 +138,7 @@ player.prototype =
 				woofers.scale.y = 10;
 				woofers.body.width = 90;
 				woofers.body.gravity.y = 700;
+				console.log("Woofers");
 			}
 			else 
 			{
@@ -132,6 +146,7 @@ player.prototype =
 				woofers.scale.y = 11;
 				woofers.body.width = 99;
 				woofers.body.gravity.y = 700 * 1.8;
+				console.log("Ponton");
 			}
 		}
 	},
@@ -145,6 +160,7 @@ player.prototype =
 			if (woofers.tileCheck == 1)
 			{
 				woofers.readyToTransform = true;
+				return false;
 			}
 		}
 		else 
@@ -152,7 +168,14 @@ player.prototype =
 			if (woofers.tileCheck == 2)
 			{
 				woofers.readyToTransform = true;
+				return false;
 			}
+		}
+
+		if (woofers.tileCheck == 3)
+		{
+			mapLoader.prototype.nextLevel();
+			return false;
 		}
 	}
 };

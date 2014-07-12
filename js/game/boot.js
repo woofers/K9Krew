@@ -17,7 +17,7 @@ window.onload = function() {
 
 	// Create Game States
 	game.state.add('menu', mainMenu);
-	game.state.add('game', level1);
+	game.state.add('game', mainGame);
 
 	// Load Menu State
 	game.state.start('menu');

@@ -4,6 +4,7 @@ var woofers = {
 					isWoofers: false,
 					readyToTransform: false,
 					isTransforming: false,
+					isAnim: false,
 					tileCheck: null,
 					speed: 450,
 					jump: 550,
@@ -17,6 +18,10 @@ var keyPress = {
 					down: false,
 					esc: false
 				};
+
+var map = {
+				level: 1
+			};
 
 // Node Webbkit Import
 var gui = require('nw.gui');

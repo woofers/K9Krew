@@ -1,10 +1,10 @@
 // Jaxson Van Doorn, 2014
 
-var level1 = {};
+var mainGame = {};
 
-level1 = function (game) {};
+mainGame = function (game) {};
 
-level1.prototype =
+mainGame.prototype =
 {
 	preload: function ()
 	{
@@ -12,14 +12,19 @@ level1.prototype =
 		game.load.image('pauseScreen', 'assets/images/ui/pause.png');
 		
 		// Tilemap
-		game.load.tilemap('tilemap', 'assets/levels/level1/level.json', null, Phaser.Tilemap.TILED_JSON);
 		game.load.image('tiles', 'assets/levels/level1/tiles.png');
+		mapLoader.prototype.preload();
 
 		// Woofers & Ponton
 		game.load.atlasXML('woofers', 'assets/images/sprites/k9.png', 'assets/images/sprites/k9.xml');
 
 		// Info Text
 		game.load.atlasXML('infotext', 'assets/images/ui/text/text.png', 'assets/images/ui/text/text.xml');
+
+		// SFX
+		game.load.audio('levelStartSound', ['assets/sfx/levelStart.mp3', 'assets/sfx/levelStart.ogg']);
+		game.load.audio('jumpSound', ['assets/sfx/jump.mp3', 'assets/sfx/jump.ogg']);
+		game.load.audio('transformSound', ['assets/sfx/transform.mp3', 'assets/sfx/transform.ogg']);
 	},
 
 	create: function ()
@@ -31,17 +36,22 @@ level1.prototype =
 		game.time.advancedTiming = true;
 
 		// Tilemap
-		map = game.add.tilemap('tilemap');
-		map.addTilesetImage('tiles', 'tiles');
-		mapLayer = map.createLayer('collisionLayer');
-		map.setCollisionBetween(3, 24);
+		mapLoader.prototype.load();
 
 		// Fixies Clipping
 		game.physics.arcade.TILE_BIAS = 64;
+
+		// Sounds
+		jumpSound = game.add.audio('jumpSound', 1, false);
+		levelStartSound = game.add.audio('levelStartSound', 1, false);
+		transformSound = game.add.audio('transformSound', 1, false);
+
+		map.level = 1;
 		
 		// Add Text
 		infotext = game.add.sprite(10, 963, 'infotext');
 
+		// Load Player
 		player.prototype.load();
 		
 		// Define States
@@ -52,7 +62,7 @@ level1.prototype =
 		infotext.animations.add('ponton1', Phaser.Animation.generateFrameNames('ponton', 1, 1, '', 4), 10, false);
 
 		// Set camera boundaries
-		camera = game.world.setBounds(0.5, 0, 5760, 1080);
+		camera = game.world.setBounds(0.5, 0, map.widthInPixels, 1080);
 
 		//Camera follow player
 		cameraFollow = game.camera.follow(woofers);
@@ -63,7 +73,11 @@ level1.prototype =
 		jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		pauseButton = game.input.keyboard.addKey(Phaser.Keyboard.ESC);
 
+		// Enable Pause Screen
 		pauseMenu.prototype.pauseScreen();
+
+		// Play Level Start Sound
+		levelStartSound.play('', 0, 1, false);
 	},
 
 	update: function ()
@@ -79,11 +93,11 @@ level1.prototype =
 		pauseMenu.prototype.pauseGame();
 
 		// Tutorial Text
-		if (woofers.body.blocked.down && !woofers.isTransforming && woofers.x < 4800)
+		if (woofers.body.blocked.down && !woofers.isTransforming && woofers.x < 4800 && woofers.x > 420)
 		{
 			infotext.alpha = 1;
 			
-			// Wofers Text
+			// Woofers Text
 			if (woofers.isWoofers)
 			{
 				if (woofers.x < 932)
@@ -138,7 +152,13 @@ level1.prototype =
 		game.debug.text('Y Speed: ' + woofers.body.velocity.y, 32, 228);
 		game.debug.text('Gravity: ' + woofers.body.gravity.y, 32, 250);
 		game.debug.spriteInfo(woofers, 32, 282);
-		//game.debug.body(woofers);
+		game.debug.text('Log: ' + "", 32, 360);
+		game.debug.body(woofers);
+	},
+
+	updateCamera: function ()
+	{
+		camera = game.world.setBounds(0.5, 0, map.widthInPixels, 1080);
 	},
 
 	quitGame: function ()
