@@ -16,6 +16,10 @@ mapLoader.prototype =
 
 	load: function ()
 	{
+		// Play Level Start Sound
+		levelStartSound.play('', 0, 1, false);
+
+		// Load Map
 		map = game.add.tilemap('level' + map.level);
 		map.addTilesetImage('tiles', 'tiles');
 		mapLayer = map.createLayer('collisionLayer');

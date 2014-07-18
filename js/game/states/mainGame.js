@@ -35,16 +35,16 @@ mainGame.prototype =
 		// Turn On FPS Caluation
 		game.time.advancedTiming = true;
 
+		// Sounds
+		jumpSound = game.add.audio('jumpSound', 1, false);
+		levelStartSound = game.add.audio('levelStartSound', 1, false);
+		transformSound = game.add.audio('transformSound', 1, false);
+
 		// Tilemap
 		mapLoader.prototype.load();
 
 		// Fixies Clipping
 		game.physics.arcade.TILE_BIAS = 64;
-
-		// Sounds
-		jumpSound = game.add.audio('jumpSound', 1, false);
-		levelStartSound = game.add.audio('levelStartSound', 1, false);
-		transformSound = game.add.audio('transformSound', 1, false);
 
 		map.level = 1;
 		
@@ -75,9 +75,6 @@ mainGame.prototype =
 
 		// Enable Pause Screen
 		pauseMenu.prototype.pauseScreen();
-
-		// Play Level Start Sound
-		levelStartSound.play('', 0, 1, false);
 	},
 
 	update: function ()
@@ -153,7 +150,7 @@ mainGame.prototype =
 		game.debug.text('Gravity: ' + woofers.body.gravity.y, 32, 250);
 		game.debug.spriteInfo(woofers, 32, 282);
 		game.debug.text('Log: ' + "", 32, 360);
-		game.debug.body(woofers);
+		//game.debug.body(woofers);
 	},
 
 	updateCamera: function ()
