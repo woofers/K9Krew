@@ -8,7 +8,7 @@ mapLoader.prototype =
 {
 	preload: function ()
 	{
-		for (i = 0; i < 2; i++)
+		for (i = 0; i < 3; i++)
 		{ 
 			game.load.tilemap('level' + (i + 1), 'assets/levels/level' + (i + 1) + '/level.json', null, Phaser.Tilemap.TILED_JSON);
 		}
