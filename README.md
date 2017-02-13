@@ -1,6 +1,6 @@
-Woofers
+K9Krew
 ============
 
-Woofers Game Built With Phaser
+Dog Game Built With Phaser
 
 Copyright 2014, Jaxson C. Van Doorn
