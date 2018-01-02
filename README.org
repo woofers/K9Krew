@@ -1,0 +1,29 @@
+
+#+TITLE:	K9 Krew
+#+AUTHOR:	Jaxson Van Doorn
+#+EMAIL:	jaxson.vandoorn@gmail.com
+#+OPTIONS:  num:nil
+
+* K9 Krew
+*Control two dogs with distinct powers and abilities to conquer complex labyrinths*
+
+/K9 Krew/ is a 2D game built built in Javascript.  Game features two fully completed levels.  More levels can be easily added by using a Tile Map Editor.
+
+** Downloads
+   Latest releases can be found [[https://github.com/woofers/k9-krew/releases][here]].
+** Screenshots
+
+#+CAPTION: Level 1
+#+NAME:    Level 1
+#+ATTR_HTML: :style margin-left: auto; margin-right: auto;
+[[./screenshots/1.png]]
+
+** Acknowledgments
+**** *Built using* [[https://phaser.io/][Phaser]]
+**** *Designed and Programed by* /Jaxson Van Doorn/
+**** *Copyright 2015*, /Jaxson Van Doorn/
+** Other Projects
+**** [[https://github.com/woofers/woofers3d][Woofers3D]]
+**** [[https://github.com/woofers/whale][Whale]]
+**** [[https://github.com/woofers/k9-krew][K9Krew]]
+**** [[https://github.com/woofers/dotfiles][Dotfiles]]
