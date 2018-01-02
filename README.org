@@ -21,7 +21,7 @@
 ** Acknowledgments
 **** *Built using* [[https://phaser.io/][Phaser]]
 **** *Designed and Programed by* /Jaxson Van Doorn/
-**** *Copyright 2015*, /Jaxson Van Doorn/
+**** *Copyright 2014*, /Jaxson Van Doorn/
 ** Other Projects
 **** [[https://github.com/woofers/woofers3d][Woofers3D]]
 **** [[https://github.com/woofers/whale][Whale]]

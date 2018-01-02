@@ -35,7 +35,7 @@ Latest releases can be found [here](https://github.com/woofers/k9-krew/releases)
 
 -   **Designed and Programed by** *Jaxson Van Doorn*
 
--   **Copyright 2015**, *Jaxson Van Doorn*
+-   **Copyright 2014**, *Jaxson Van Doorn*
 
 ## Other Projects<a id="sec-1-4" name="sec-1-4"></a>
 
