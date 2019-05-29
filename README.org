@@ -2,7 +2,7 @@
 #+TITLE:	K9 Krew
 #+AUTHOR:	Jaxson Van Doorn
 #+EMAIL:	jaxson.vandoorn@gmail.com
-#+OPTIONS:  num:nil
+#+OPTIONS:  num:nil toc:nil
 
 * K9 Krew
 *Control two dogs with distinct powers and abilities to conquer complex labyrinths*
@@ -17,13 +17,3 @@
 #+NAME:    Level 1
 #+ATTR_HTML: :style margin-left: auto; margin-right: auto;
 [[./screenshots/1.png]]
-
-** Acknowledgments
-**** *Built using* [[https://phaser.io/][Phaser]]
-**** *Designed and Programed by* /Jaxson Van Doorn/
-**** *Copyright 2014*, /Jaxson Van Doorn/
-** Other Projects
-**** [[https://github.com/woofers/woofers3d][Woofers3D]]
-**** [[https://github.com/woofers/whale][Whale]]
-**** [[https://github.com/woofers/k9-krew][K9Krew]]
-**** [[https://github.com/woofers/dotfiles][Dotfiles]]
